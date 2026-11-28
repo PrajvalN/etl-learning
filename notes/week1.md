@@ -37,3 +37,13 @@ Known simplifications (v1):
   climates. Future improvement: population-weighted average of several cities.
 - City choice matters at borders: LA and Sacramento are separate operators
   (LDWP, BANC), not CISO, so San Francisco was picked for California.
+
+
+  ## Data quality finding: ISNE Aug 1 – Nov 1, 2026
+- Expected 8,836 rows (2,209 hours × 4 measures); got 8,833
+- Total interchange (TI) missing for 3 hours (UTC):
+  2026-09-11T18, 2026-10-14T20, 2026-10-14T21
+- D, DF, NG complete
+- Plan: in the transform step, derive missing TI as NG − D and flag it as derived
+- Future automated check: every region-hour should have all 4 measures
+
